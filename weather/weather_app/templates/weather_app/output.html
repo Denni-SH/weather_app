@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Пятидневка</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/weather_app.css' %}">
+    </head>
+    <body>
+        <div class="head"><h1 class="main-title">Будь готов к сюрпризам погоды с нами</h1></div>
+        <div class="container">
+            <div class="row col-lg-12 col-md-12">
+                <h1 id="city">{{ form.city }}: прогноз на 5 дней</h1>
+                <table class="table table-responsive table-hover">
+                    <tr>
+                        <th id="th">Дата и время</th>
+                        <th id="th">Температура</th>
+                        <th id="th">Описание</th>
+                    </tr>
+                    {% for i in w_data %}
+                        <tr>
+                            {% for j in i %}
+                                <td>{{ j }} </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+                <h3><a href="/" id="back">Назад</a></h3>
+            </div>
+        </div>
+    </body>
+</html>

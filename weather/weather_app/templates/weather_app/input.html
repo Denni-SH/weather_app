@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Пятидневка</title>
+	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	    <link rel="stylesheet" href="{% static 'css/weather_app.css' %}">
+	</head>
+	<body>
+	    <div class="head"><h1 class="main-title">Будь готов к сюрпризам погоды с нами</h1></div>
+		<div class="container">
+			<div class="row col-lg-12 col-md-12">
+				<form action="/results/" method="post" id="in">{% csrf_token %}
+					<div class="form-group has-warning">
+						<label for="city" id="form-text">Введите название города: </label>
+				        <input id="input" required type="text" pattern="^[A-Za-zА-Яа-яЁё\s-]+$" name="city" value="{{ city }}" class="form-control" placeholder="Введите город на английском или русском языках">
+				        <p><input type="submit" value="УЗНАТЬ ПРОГНОЗ" class="btn btn-warning center-block btn-lg" id="submit"></p>
+					</div>
+		    	</form>	
+			</div>
+		</div>
+	</body>
+</html>
